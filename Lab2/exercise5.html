@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <title> Exercise 5 </title>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<head>
+    <style>
+        div.center {
+            margin: 0 auto;
+            width: 200px;
+            padding: 20px;
+            border: 3px solid red;
+        }
+
+        .first {
+            font-family:Verdana;
+            color:blue;
+            text-align:center;
+            text-transform: uppercase; 
+            margin:1.5px;       }
+
+
+        .second {
+            text-transform: lowercase;
+            color:red;
+            text-align:right;
+            border:3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <ol start="1">
+            <li class="first">το πρώτο στοιχείο στον κατάλογο-1. </li>
+            <li class="first">το δεύτερο στοιχείο στον κατάλογο-1.
+                <ol>
+                    <li class="second">πρώτο στοιχείο στον υποκατάλογο-2.</li>
+                    <li class="second">δεύτερο στοιχείο στον υποκατάλογο-2. </li>
+                </ol>
+            </li>
+            <li class="first">το τρίτο στοιχείο στον κατάλογο-1. </li>
+        </ol>
+    </div>
+</body>
+
+</html>
