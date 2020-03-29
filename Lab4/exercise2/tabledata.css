@@ -1,0 +1,22 @@
+table th {
+    background-color: chartreuse;
+    padding: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid chartreuse;
+
+}
+
+table td {
+    padding: 4px;
+    border: 1px solid chartreuse;
+}
+
+table tr.odd {
+    background-color: white;
+}
+
+table tr.even {
+    background-color: lightgray;
+}
