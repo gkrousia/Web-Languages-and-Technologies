@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Div Layout</title>
+
+    <style>
+        #header {
+            font-weight: bold;
+            font-size: larger;
+            height: 50px;
+            background-color: hotpink;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .c1 {
+            width: 50%;
+            display: inline-block;
+            float: left;
+        }
+
+        .c2 {
+            width: 50%;
+            display: inline-block;
+            float: left;
+        }
+
+        .row {
+            height: 50px;
+            background-color: aqua;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #footer {
+            height: 50px;
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header">
+        <div class="c1">PERSON</div>
+        <div class="c2">AGE</div>
+    </div>
+
+    <div class="row">
+        <div class="c1">Josh</div>
+        <div class="c2">23</div>
+    </div>
+
+    <div class="row">
+        <div class="c1">Mary</div>
+        <div class="c2">43</div>
+    </div>
+
+    <div class="row">
+        <div class="c1">Nick</div>
+        <div class="c2">54</div>
+    </div>
+
+    <div class="row">
+        <div class="c1">John</div>
+        <div class="c2">76</div>
+    </div>
+
+<div id="footer"></div>
+</body>
+
+</html>
