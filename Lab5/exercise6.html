@@ -1,0 +1,43 @@
+﻿<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise 6 </title>
+
+    <style></style>
+
+</head>
+
+<body>
+    <h1 id="header">exercise 6</h1>
+    <p>This page returns the domain name or the path of the url.</p>
+    <select id="list" size="2">
+        <option value="path">PATH</option>
+        <option value="domain">DOMAIN</option>
+    </select>
+    <br>
+    <input type="button" onclick="Show()" value="Show">
+</body>
+
+<script>
+
+    function Show() {
+        const selecteddropdown = document.getElementById("list").value;
+        if (selecteddropdown === "path") {
+            alert(location.pathname);
+        } else if ((selecteddropdown === "domain")){
+            alert(document.domain);
+        } else{
+            alert("error,choose an option")
+        }
+        
+    }
+
+</script>
+
+</html>

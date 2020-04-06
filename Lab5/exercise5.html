@@ -1,0 +1,35 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise 5 </title>
+
+    <style></style>
+
+</head>
+
+<body>
+    <h1 id="header">exercise 5</h1>
+    <p>This page returns the name of the browser in the language that is set.</p>
+    <input type="button" onclick="showBrowser()" value="What's my browser">
+</body>
+
+<script>
+
+    function showBrowser() {
+        const lang = navigator.language;
+        if (lang == 'el-GR') {
+            alert("χρησιμοποιείτε τον " + navigator.appCodeName + " με γλώσσα: " + navigator.language);
+        } else {
+            alert("you are using " + navigator.appCodeName +" with this language: " + navigator.language);
+        }
+    }
+
+</script>
+
+</html>

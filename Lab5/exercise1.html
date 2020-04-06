@@ -28,14 +28,19 @@
     function calculateSum() {
         const number1 = document.getElementById("first_number").value;
         const number2 = document.getElementById("second_number").value;
-        console.log(number1);
-        console.log(number2);
-        const sum = +number1 + +number2;
-        if (sum > 1000) {
-            alert("error");
+        if (isNaN(number1) || !number1  || isNaN(number2) || !number2 ) {
+            alert("not a number");
         } else {
-            alert(sum);
+            console.log(number1);
+            console.log(number2);
+            const sum = +number1 + +number2;
+            if (sum > 1000) {
+                alert("error");
+            } else {
+                alert(sum);
+            }
         }
+
     }
 
 </script>

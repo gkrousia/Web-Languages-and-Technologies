@@ -1,0 +1,48 @@
+﻿﻿<html>
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="description" content="Free Web tutorials">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="Grigorios Krousiarlis">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> exercise2 </title>
+
+	<style></style>
+
+</head>
+
+<body>
+	<h1 id="header">exercise 2</h1>
+	<p>
+		In this page you give an URL address and after you press the button it opens.<br>
+	</p>
+	<label for="address">URL :</label>
+	<input type="text" id="address"><br><br>
+	<input type="button" value="Open Window" onclick="windowOpen()">
+
+</body>
+
+<script>
+
+	function windowOpen() {
+		const url = document.getElementById('address').value;
+		try {
+			const urladr = new URL(url)
+			location.replace(url);
+		}
+		catch (err) {
+			alert("wrong url,try again");
+		}
+		// if (url.startsWith("https:") || url.startsWith("http:")) {
+		// 	location.replace(url)
+		// }
+		// else {
+		// 	alert("wrong URL,try again")
+		// }
+	}
+
+</script>
+
+</html>
