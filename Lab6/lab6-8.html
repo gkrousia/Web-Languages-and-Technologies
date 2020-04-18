@@ -1,0 +1,49 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="Grigorios Krousiarlis">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> exercise 8 </title>
+
+  <style></style>
+  <script>
+    function rndNum(maxNum) {
+      var num = Math.random();
+      num = num * maxNum;
+      num = Math.ceil(num);
+      return num;
+    }
+
+    function tellUser(specifiedNum) {
+      try {
+        if (isNaN(specifiedNum)) {
+          throw "This is not a number";
+        }
+
+        alert(rndNum(specifiedNum));
+      }
+      catch (error) {
+         alert(error);
+      }
+    }
+  </script>
+</head>
+
+<body>
+  Type a number in the area below, then click Calculate.
+  <br>
+  The page will generate a random number between 1 and the
+  number you entered.
+  <br>
+
+  <form>
+    <textarea name="TextNum">10</textarea>
+    <br>
+    <input value="Calculate" onclick="tellUser(TextNum.value)" type="button">
+  </form>
+</body>
+
+</html>

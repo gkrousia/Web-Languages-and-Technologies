@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Free Web tutorials">
+        <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+        <meta name="author" content="Grigorios Krousiarlis">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> exercise 7.1 </title>
+    
+        <style></style>
+        <script>
+            function errorHandler(msg, url, line)
+            {
+                var strPrompt = "Captured error : " + msg + "\n On line : " + line + "\n In : " + url + ".";
+                alert(strPrompt);
+            }
+
+            window.onerror = errorHandler;
+        </script>
+    </head>
+
+    <body>
+        Clicking this button calls a non existent object.
+        <form>
+            <input value="Click Me" onclick="FakeO.use()" type="button">
+        </form>
+    </body>
+</html>

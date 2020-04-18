@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login </title>
+    <style>
+        body {
+            background-color: khaki;
+            text-align: center;
+            float: center;
+            position: absolute;
+            left: 150px;
+            right: 200px;
+            bottom: 200px;
+        }
+
+        h1 {
+            font-weight: 1000px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color: green;
+        }
+
+        p {
+            font-weight: bolder;
+        }
+
+        .bottom {
+            font-weight: bold;
+            font-size: small;
+        }
+
+        .form {
+            font-weight: bolder;
+            font-size: x-large;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="header">Login</h1>
+    <p>
+        Fill the gaps with your username and password and sign in. <br>
+    </p>
+    <div class="form">
+        <label for="user"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" id="user" name="user" required><br><br>
+        <label for="passwd"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" id="passwd" name="passwd" required><br><br>
+        <input type="button" value="Enter" id="submit" onclick="check(user.value,passwd.value)">
+    </div><br>
+    <div class="bottom">
+        <p>Note : For this demo use following username and password. </p>
+        <p>User Name : admin<br />Password : admin</p>
+    </div>
+
+</body>
+<script>
+    const credentials = [{ username: "admin", password: "admin", status: "blocked" },
+    { username: "studin", password: "studin" },
+    { username: "login", password: "login" },
+    { username: "pass", password: "pass" }];
+
+    function verify(username, password) {
+
+        for (const value of credentials) {
+            if (value.username === username && value.password === password) {
+                // alert("Login successfully. Welcome to our Page!");
+                // window.location = "success.html"; // Redirecting     
+                return true;
+            }
+        }
+        // alert("Password did not match: Please try again");
+        return false;
+    }
+
+
+    // You have 3 attempts
+    let attempt = 3;
+
+    function check() {
+        const password = document.getElementById('passwd').value;
+        const username = document.getElementById('user').value;
+
+        // If password not entered 
+        if (password === '') {
+            alert("Please enter Password");
+        }
+        // If same return True. 
+        else if (verify(username, password) === true) {
+            alert("Login successfully. Welcome to our Page!");
+            window.location = "success.html"; // Redirecting 
+        }
+
+        // If Not same return False.	 
+        else {
+            if (attempt > 0) {
+                attempt--;// minus one.
+                alert("Password did not match: Please try again.You have left " + attempt + " attempts;");
+                // Disabling all fields after 3 attempts.
+                if (attempt === 0) {
+                    document.getElementById("user").disabled = true;
+                    document.getElementById("passwd").disabled = true;
+                    document.getElementById("submit").disabled = true;
+                }
+            }
+        }
+    }
+
+</script>
+
+</html>

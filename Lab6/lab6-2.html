@@ -1,0 +1,41 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="Grigorios Krousiarlis">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style></style>
+  <title>Listing 9-5</title>
+  <script>
+    var numArray = [];
+    for (let i = 0; i <= 2; i++) {
+      numArray[i] = Math.ceil(Math.random() * 4)
+    }
+
+    alert("You will be asked to guess three numbers I have picked.")
+
+    for (const j in numArray) {
+      let guess = prompt("Guess between 1 and 4. Cancel will exit.", "")
+      alert(guess);
+      while ((guess == numArray[j]) && (guess != 0)) {
+        guess = prompt("Nope! Try again or type 0 to quit.", "")
+      }
+
+      if (guess == 0) {
+        if (confirm("OK to quit, Cancel to guess the next number.")) {
+          break
+        }
+        else { continue }
+      }
+
+      alert("That's right!")
+    }
+
+    alert("Goodbye!")
+  </script>
+</head>
+
+</html>

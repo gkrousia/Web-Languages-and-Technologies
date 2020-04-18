@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Free Web tutorials">
+        <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+        <meta name="author" content="Grigorios Krousiarlis">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> exercise 6 </title>
+    
+        <style></style>
+        <script>
+            function myFunction(image)
+            {
+                image.src = "Sunset.jpg";
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Διαχείριση λαθών</h1>
+
+        <p>Image χωρίς διαχείριση λαθών.</p>
+        <img src="Bluehills.jpg" name="Img1">
+
+        <p>Image με διαχείριση λαθών.</p>
+        <img id="img2" src="1.gif" name="Img2" onerror="myFunction(this)">
+    </body>
+</html>

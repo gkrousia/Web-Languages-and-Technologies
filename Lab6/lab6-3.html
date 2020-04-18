@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style></style>
+	<title>Image change on focus</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	function changeImage(p_oDestImage)
+	{
+		oImage = p_oDestImage
+		oImage.src="Sunset.jpg";
+	}
+
+	function restoreImage(p_oDestImage)
+	{
+		oImage = p_oDestImage
+		if (oImage.id == "imgLeft")
+			oImage.src = g_sImageLeftSrc;
+		else if (oImage.id == "imgRight")
+			oImage.src = g_sImageRightSrc;
+	}
+
+</script>
+
+<div>
+   <div style="padding-bottom: 20px; float:left">
+	<img id="imgLeft" src="PalmBeach.jpg" onmouseenter="changeImage(this)" onmouseleave="restoreImage(this)"><br>
+</div>
+<div style="float:left">
+	<img id="imgRight" src="SandyBeach.jpg" onmouseenter="changeImage(this)" onmouseleave="restoreImage(this)"><br>
+</div>	
+
+<script type="text/javascript">
+	var g_sImageLeftSrc = document.getElementById("imgLeft").src;
+	var g_sImageRightSrc = document.getElementById("imgRight").src;
+</script>	
+
+</body>
+</html>

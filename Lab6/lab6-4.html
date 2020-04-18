@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Free Web tutorials">
+        <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+        <meta name="author" content="Grigorios Krousiarlis">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> exercise 4 </title>
+    
+        <style></style>
+        <script>
+            const a = 15;
+            const b = 'abc';
+            const c = '10';
+            const d = true;
+
+            function evaluatecode(obj)
+            {
+                document.getElementById("output").innerText = eval(obj.sDbg.value)
+            }
+        </script>
+    </head>
+
+    <body>
+        <form name="frm" onsubmit="evaluatecode(this)">
+            <input type="text" name="sDbg" size="100">
+            <input type="button" value="Run Code" onclick="evaluatecode(frm)">
+        </form>
+
+        <div id="output"></div>
+    </body>
+</html>
