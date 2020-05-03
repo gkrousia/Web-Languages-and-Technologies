@@ -1,0 +1,42 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise5 </title>
+
+    <style>
+
+    </style>
+
+</head>
+
+<body onunload="OnUnload()" onload="OnLoad()">
+    <input type="text" id="text1" onfocus="onFocus(this)" onblur="onBlur(this)">
+    <input type="text" id="text2" onfocus="onFocus(this)" onblur="onBlur(this)">
+    <input type="text" id="text3" onfocus="onFocus(this)" onblur="onBlur(this)">
+    <input type="text" id="text4" onfocus="onFocus(this)" onblur="onBlur(this)">
+</body>
+
+<script>
+
+
+    function onFocus(x) {
+        x.style.background = "yellow";
+    }
+
+    function onBlur(x) {
+        if (x.value.length === 0) {
+            x.style.backgroundColor = "red";
+        }
+        else {
+            x.style.backgroundColor = "white";
+        }
+    }
+</script>
+
+</html>

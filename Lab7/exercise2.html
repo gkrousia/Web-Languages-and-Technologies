@@ -1,0 +1,37 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise2 </title>
+
+    <style></style>
+
+</head>
+
+<body>
+    <label for="text1">Type here:</label>
+    <input type="text" id="text1" name="text1" onkeyup="upperCase(this , text2)">
+    <label for="text2">Result:</label>
+    <input type="text" id="text2" name="text2">
+</body>
+
+<script>
+
+    function upperCase(text1 , text2) {
+
+        // const text1 = document.getElementById("text1");
+        // const text2 = document.getElementById("text2");
+
+        text2.value = text1.value.toUpperCase();
+
+
+    }
+
+</script>
+
+</html>

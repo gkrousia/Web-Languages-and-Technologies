@@ -1,0 +1,45 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise3 </title>
+
+    <style>
+        img {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <img src="first.jpg" id="first" onmouseover="mouseOver()" onmouseout="mouseOut()" onmouseup="mouseUp()">
+
+</body>
+
+<script>
+
+    function mouseOver() {
+        document.getElementById("first").src = "second.jpg";
+    }
+
+    function mouseOut() {
+        document.getElementById("first").src = "first.jpg";
+
+    }
+
+    function mouseUp() {
+        document.getElementById("first").src = "third.jpg";
+
+    }
+
+
+</script>
+
+</html>
