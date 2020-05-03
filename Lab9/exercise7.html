@@ -1,0 +1,97 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise6 </title>
+
+    <style>
+        #myTable {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <input type="button" onclick="Color()" value="Color" id="button">
+    <br><br>
+
+    <select id="levels">
+        <option>level 1</option>
+        <option>level 2</option>
+    </select>
+    <br><br>
+
+    <h1>test</h1>
+    <h1>hi</h1>
+    <h1>test</h1>
+    <h2>login</h2>
+    <h2>logout</h2>
+    <h1>signin</h1>
+    <h2>welcome</h2>
+    <h2>exit</h2>
+    <h1>test</h1>
+    <h1>hi</h1>
+    <h1>test</h1>
+    <h2>login</h2>
+    <h2>logout</h2>
+
+</body>
+
+<script>
+
+    function Color() {
+        const button = document.getElementById("button");
+        const levels = document.getElementById("levels").selectedIndex;
+
+        if (button.value === "Color") {
+            button.value = "Discolor";
+
+            if (levels === 0) {
+
+                var a = document.getElementsByTagName("h1");
+
+                for (var i = 0; i < a.length; i++) {
+                    a[i].style.backgroundColor = "yellow";
+                }
+            }
+
+            else {
+                var a = document.getElementsByTagName("h2");
+
+                for (var i = 0; i < a.length; i++) {
+                    a[i].style.backgroundColor = "yellow";
+                }
+            }
+        }
+        else {
+            button.value = "Color";
+
+            if (levels === 0) {
+
+                var a = document.getElementsByTagName("h1");
+
+                for (var i = 0; i < a.length; i++) {
+                    a[i].style.backgroundColor = "white";
+                }
+            }
+
+            else {
+                var a = document.getElementsByTagName("h2");
+
+                for (var i = 0; i < a.length; i++) {
+                    a[i].style.backgroundColor = "white";
+                }
+            }
+        }
+    }
+
+
+</script>
+
+</html>

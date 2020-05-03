@@ -1,0 +1,48 @@
+﻿<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise3 </title>
+
+    <style></style>
+
+</head>
+
+<body>
+    <ul id="list" onclick="clicked(event)">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+        <li>Beer</li>
+        <li>Soda</li>
+        <li>Vodka</li>
+    </ul>
+
+</body>
+
+<script>
+var i=0;
+    function clicked(event) {
+
+        var liselectedelement = event.target;
+        if (liselectedelement.tagName == "LI") {
+            liselectedelement.innerHTML = "<img src=\"second.jpg\" width=\"20px\" height=\"20px\">";
+            i++;
+
+            if (i === 3) {
+                alert("Έκανες 3 κλίκ");
+                document.getElementById("list").onclick = false;
+                
+            }
+        }
+    }
+
+
+</script>
+
+</html>

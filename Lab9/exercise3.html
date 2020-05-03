@@ -1,0 +1,50 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise3 </title>
+
+    <style></style>
+    <script>
+
+        function findDomain()   
+             {
+            var i;
+
+            var linklist = document.getElementsByTagName("a").length;
+
+            for (i = 0; i < linklist; i++) {
+
+                if (window.location.hostname === document.links[i].hostname) {
+                    document.links[i].style.backgroundColor = "green";
+                }
+                else {
+                    document.links[i].style.backgroundColor = "red";
+                }
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <a href="exercise1.html">Exercise 1</a> <br>
+    <a href="exercise2.html">Exercise 2</a><br>
+    <a href="https://sites.google.com/site/gtiteithe/"> Web Languages and Technologies</a><br>
+    <a href="https://stackoverflow.com/">Stack Overflow</a><br>
+    <a href="https://www.w3schools.com/">W3 schools</a><br>
+    <a href="https://www.google.com/">Google</a><br>
+
+    <br><br>
+    <input type="button" value="color" onclick="findDomain()">
+
+
+</body>
+
+</html>

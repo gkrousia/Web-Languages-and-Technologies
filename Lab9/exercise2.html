@@ -1,0 +1,60 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise2 </title>
+
+    <style></style>
+    <script>
+
+        const images = new Array();
+        images[0] = new Array("1.jpg", 200, 200);
+        images[1] = new Array("2.jpg", 300, 300);
+        images[2] = new Array("3.jpg", 400, 400);
+        images[3] = new Array("4.png", 500, 500);
+
+        var i = 0;
+
+        function PreviousImage() {
+
+            i = i - 1;
+            if (i === -1) {
+                i = images.length - 1;
+            }
+
+            document.getElementById("image").src = images[i][0];
+            document.getElementById("image").height = images[i][1];
+            document.getElementById("image").width = images[i][2];
+
+        };
+
+
+        function NextImage() {
+            i++; 
+            if (i >= images.length) {
+                i = 0;
+            }
+
+            document.getElementById("image").src = images[i][0];
+            document.getElementById("image").height = images[i][1];
+            document.getElementById("image").width = images[i][2];
+        }
+    </script>
+</head>
+
+<body>
+    <img src="1.jpg" id="image">
+    <br>
+    <br>
+    <br>
+    <input type="button" value="previous" onclick="PreviousImage()">
+    <input type="button" value="next" onclick="NextImage ()" />
+
+</body>
+
+</html>

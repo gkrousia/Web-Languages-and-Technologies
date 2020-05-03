@@ -1,0 +1,41 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise5 </title>
+
+    <style></style>
+    <script>
+        function functionn()
+        {
+            const text = document.getElementById("text");
+            const prices = document.getElementById("prices");
+            if (text.value.length > 0) {
+                prices.innerHTML += "<option>" + text.value + "</option>";
+                text.value = "";
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="text" id="text"> <br><br>
+    <select id="prices">
+        <option>price 1</option>
+        <option>price 2</option>
+        <option>price 3</option>
+        <option>price 4</option>
+    </select>
+    <br>
+    <br>
+    <input type="button" value="Add" onclick="functionn()" id="button">
+
+</body>
+
+</html>

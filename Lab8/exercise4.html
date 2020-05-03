@@ -1,0 +1,51 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise4 </title>
+
+    <style>
+        .linkClass {
+            color: red;
+            background-color: yellow;
+        }
+    </style>
+
+</head>
+
+<body>
+    <a href="#">first</a> <br>
+    <a href="#">second</a> <br>
+    <a href="#">third</a> <br>
+    <a href="#">fourth</a> <br>
+    <a href="#">fifth</a> <br>
+    <a href="#">sixth</a> <br>
+    <a href="#">seventh</a> <br>
+    <a href="#">eighth</a> <br>
+    <a href="#">ninth</a> <br>
+    <a href="#">tenth</a> <br>
+
+    <input type="button" value="Click Here" onclick="change()">
+
+
+</body>
+
+<script>
+
+    function change() {
+
+        var link = document.getElementsByTagName("a");
+        for (i = 0; i < link.length; i++) {
+            link[i].setAttribute('class', 'linkClass');
+        }
+    }
+
+
+</script>
+
+</html>

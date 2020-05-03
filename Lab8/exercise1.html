@@ -1,0 +1,45 @@
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="Grigorios Krousiarlis">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> exercise1 </title>
+
+  <style></style>
+  <script>
+
+    function tagname(event) {
+      document.getElementById("text").value = event.target.tagName;
+      document.getElementById("textarea").innerText = event.target.innerText;
+    }
+
+  </script>
+</head>
+
+<body onmouseover="tagname(event)">
+
+  <input type="text" id="text" />
+  <textarea id="textarea" cols="20" rows="4"></textarea>
+
+  <p>hello</p>
+  <h1>OK</h1>
+  <h2>Login</h2><br>
+  <table>
+    <tr>
+      <th>Month</th>
+      <th>Savings</th>
+    </tr>
+    <tr>
+      <td>January</td>
+      <td>$100</td>
+    </tr>
+  </table> <br>
+  <img src="second.jpg"> <br>
+
+</body>
+
+</html>

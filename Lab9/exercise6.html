@@ -1,0 +1,85 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise6 </title>
+
+    <style>
+        #myTable {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <table id="myTable">
+        <tr>
+
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <br><br>
+    <input type="button" onclick="fillTable()" value="Fill the table">
+
+
+</body>
+
+<script>
+    let myTable = document.getElementById("myTable");
+
+    function fillTable() {
+        for (var i = 0; i < myTable.rows.length; i++) {
+            for (var j = 0; j < myTable.rows[i].cells.length; j++) {
+                myTable.rows[i].cells[j].innerText = Math.ceil(Math.random() * 10);
+
+                if (myTable.rows[i].cells[j].innerText > 5) {
+                    myTable.rows[i].cells[j].style.backgroundColor = "red";
+                }
+                else {
+                    myTable.rows[i].cells[j].style.backgroundColor = "green";
+                }
+            }
+        }
+    }
+
+</script>
+
+</html>

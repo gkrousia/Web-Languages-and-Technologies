@@ -1,0 +1,48 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise5.1 </title>
+
+    <style></style>
+    <script>
+function create(){
+    const selectedElement = document.getElementById("elements").value;
+    const selectedColor = document.getElementById("colors").value;
+    const result = document.getElementById("results");
+    
+    element = document.createElement(selectedElement);
+                element.innerHTML =  selectedElement + "   " + selectedColor;
+                color = "color:" + selectedColor;
+                element.setAttribute("style", color);
+                result.appendChild(element);
+}
+    </script>
+</head>
+
+<body>
+
+    <select id="elements">
+        <option value="h1">H1</option>
+        <option value="h2">H2</option>
+        <option value="h3">H3</option>
+        <option value="p">P</option>
+        <option value="span">SPAN</option>
+    </select>
+
+    <select id="colors">
+        <option value="red">red</option>
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+    </select>
+
+    <input type="button" value="Δημιουργία" id="start" onclick="create()"> <br>
+    <div id="results"></div>
+</body>
+
+</html>

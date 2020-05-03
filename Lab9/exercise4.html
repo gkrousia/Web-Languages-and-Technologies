@@ -1,0 +1,54 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise4 </title>
+
+    <style></style>
+    <script>
+
+        function showImage() {
+            const results = document.getElementById("results");
+            const button = document.getElementById("button");
+
+            if (button.value === "Show") {
+                const images = document.images;
+                results.innerHTML = "<ul>";
+                for (const image of images) {
+                    // results.innerHTML += "<br>" + image.src;    i alliws me lista 21,24,27
+                    results.innerHTML += "<li>" + image.src + "</li>";
+                }
+                button.value = "Dissapear";
+                results.innerHTML += "</ul>";
+            }
+            else {
+                results.innerHTML = " ";
+                button.value = "Show";
+            }
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <input type="button" value="Show" onclick="showImage()" id="button">
+    <br>
+    <br>
+    <img src="1.jpg">
+    <img src="2.jpg">
+    <img src="3.jpg">
+    <img src="4.png">
+
+    <div id="results"></div>
+</body>
+
+</html>
