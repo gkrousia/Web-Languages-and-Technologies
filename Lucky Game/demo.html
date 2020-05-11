@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+
+<table id="myTable">
+  <tr>
+    <td onclick="show(this)">1</td>
+    <td onclick="show(this)">2</td>
+  </tr>
+  <tr>
+    <td onclick="show(this)">3</td>
+    <td onclick="show(this)">4</td>
+  </tr>
+</table>
+<br> 
+
+
+
+<script>
+
+function show(td) {
+ const number = parseInt(td.innerText)
+ td.style.backgroundColor = 'grey';
+ alert(number)
+}
+</script>
+
+</body>
+</html>
