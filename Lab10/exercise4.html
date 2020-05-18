@@ -1,0 +1,44 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise4 </title>
+
+    <style></style>
+    <script>
+        var array = document.getElementsByTagName("a");
+
+        function ConfirmLink() {
+            for (var i = 0; i < array.length; i++) {
+                array[i].onclick = function openLink() {
+                    var r = confirm("Are you sure?");
+                    if (r == false) {
+                        return false;
+
+                    }
+                }
+
+            }
+        }
+
+    </script>
+</head>
+
+<body onload="ConfirmLink()">
+    <a href="http://www.google.com">Google</a>
+    <br>
+    <a href="http://www.facebook.com">Facebook</a>
+    <br>
+    <a href="http://www.twitter.com">Twitter</a>
+    <br>
+    <a href="http://www.youtube.com">Youtube</a>
+    <br>
+    <a href="http://www.instagram.com">Instagram</a>
+</body>
+
+</html>

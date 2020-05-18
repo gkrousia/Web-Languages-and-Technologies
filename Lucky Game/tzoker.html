@@ -47,35 +47,38 @@
 
 
         function pickNumber(tableCell) {
-            const table = document.getElementById("myTable");
-            const number = parseInt(tableCell.innerText)
+            // const table = document.getElementById("myTable");
+            // const number = parseInt(tableCell.innerText)
             tableCell.style.backgroundColor = 'grey';
-            alert(number);
+            // alert(number);
         }
 
 
-
+        let startGameInterval;
         function startGame() {
             // const x=0;
             // var myVar = setInterval(randomNumber , 1000);
-            var count = 0;
-            var timesRun = 0;
-            var myVar = setInterval(function () {
-                timesRun += 1;
-                if (timesRun === 10) {
-                    clearInterval(myVar);
-                }
+            let correctGuesses = 0;
+            let timesRun = 0;
+            startGameInterval = setInterval(function () {
                 const table = document.getElementById("myTable");
-                var r = Math.floor(Math.random() * (9 - 0)) + 0;;
-                var p = Math.floor(Math.random() * (9 - 0)) + 0;;
+                const r = Math.floor(Math.random() * (9 - 0)) + 0;;
+                const p = Math.floor(Math.random() * (9 - 0)) + 0;;
                 console.log(r, p);
                 if (table.rows[r].cells[p].style.backgroundColor === "grey") {
                     alert("you guessed right number: " + table.rows[r].cells[p].innerText);
-                    count += 1;
+                    correctGuesses += 1;
+                    table.rows[r].cells[p].style.backgroundColor = "green";
                 }
-                table.rows[r].cells[p].style.backgroundColor = "green";
+                else {
+                    table.rows[r].cells[p].style.backgroundColor = "yellow";
+                }
+                timesRun += 1;
+                if (timesRun === 10) {
+                    clearInterval(startGameInterval);
+                    alert("your correct guesses are :" + correctGuesses);
+                }
             }, 1000);
-            // alert("your correct guesses are :" + count);
 
         }
 

@@ -1,0 +1,53 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise5 </title>
+
+    <style></style>
+    <script>
+        var r = 0;
+        function createTable() {
+            document.getElementById("myTable").innerHTML = "";
+            let myTable = document.getElementById("myTable");
+            const rn = document.getElementById("rn").value;
+            const cn = document.getElementById("cn").value;
+            for (var r = 0; r < parseInt(rn, 10); r++) {
+                var x = document.getElementById('myTable').insertRow(r);
+                for (var c = 0; c < parseInt(cn, 10); c++) {
+                    var y = x.insertCell(c);
+                    y.innerText = "Row-" + r + " Column-" + c;
+                }
+            }
+
+        }
+
+
+        function resetTable() {
+            document.getElementById("rn").value = "1";
+            document.getElementById("cn").value = "1";
+            document.getElementById("myTable").innerHTML = "";
+        }
+
+    </script>
+</head>
+
+<body>
+    <table id="myTable"> </table>
+    <form id="userInput">
+        <label for="row"> Rows:</label>
+        <input type="number" id="rn" min="1" max="100" value="1"><br><br>
+        <label for="col">Cells :</label>
+        <input type="number" id="cn" min="1" max="100" value="1"><br><br>
+        <input type="button" onclick="createTable()" value="Create the table">
+        <input type="button" value="Reset the table" onClick="resetTable()">
+   
+    </form>
+</body>
+
+</html>
