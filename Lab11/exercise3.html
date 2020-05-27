@@ -1,0 +1,110 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise3 </title>
+
+    <style>
+        table,
+        td {
+            background-color: yellow;
+            border: 1px solid black;
+
+        }
+    </style>
+    <script>
+        var colors = new Array("green", "red");
+        var r = 0;
+        var count = 0;
+        var MO = 0;
+        function ColorGame() {
+            var myTable = document.getElementById("myTable");
+            var button = document.getElementById("button");
+            button.disabled = true;
+
+            for (var i = 0; i <= 4; i++) {
+                for (var j = 0; j <= 4; j++) {
+                    myTable.rows[i].cells[j].innerHTML = Math.floor(Math.random() * 9);
+                    var r = Math.floor(Math.random() * 2);
+                    myTable.rows[i].cells[j].style.backgroundColor = colors[r];
+                    myTable.rows[i].cells[j].onclick = function () {
+                        userPicks(this);
+                    }
+                }
+            }
+        }
+        function userPicks(cell) {
+            if (document.getElementById('button').disabled == true) {
+
+                if (cell.style.backgroundColor == "green") {
+                    MO = MO + parseInt(cell.innerText);
+                    cell.innerText++;
+                    cell.style.backgroundColor = "red";
+                }
+                else {
+                    MO = MO + parseInt(cell.innerText);
+                    cell.innerText++;
+                    cell.style.backgroundColor = "green";
+                }
+                count++;
+                if (count === 10) {
+                    document.getElementById('button').disabled = false;
+                    alert(MO);
+                }
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Start" id="button" onclick="ColorGame()">
+    <br>
+
+    <table id="myTable">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

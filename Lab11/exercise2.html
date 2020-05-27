@@ -1,0 +1,76 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise2 </title>
+
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        let rowIndex = 0;
+        function addRow() {
+            const table = document.getElementById("myTable");
+            const row = table.insertRow(-1);
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+            const cell3 = row.insertCell(2);
+            cell1.innerHTML = "<input id='text" + rowIndex + "' type='text'> ";
+            cell2.innerHTML = "<input type='button' value='Load Image' onclick='addImage(" + rowIndex + ")'>";
+            cell3.innerHTML = "<img id='img" + rowIndex + "'>";
+            rowIndex++;
+        }
+
+
+        function addImage(rowIndex) {
+            const text = document.getElementById("text" + rowIndex);
+            const img = document.getElementById("img" + rowIndex);
+            img.src = text.value;
+
+        }
+
+        let timer;
+        function slideShow() {
+            let slideShowIndex = 0;
+            const table = document.getElementById("myTable");
+            let slides = document.getElementById("slides")
+             timer = setInterval(function () {
+                slides.innerHTML = myTable.rows[slideShowIndex].cells[2].innerHTML;
+                slideShowIndex++;
+                if (slideShowIndex >= rowIndex) {
+                    slideShowIndex = 0;
+                }
+            }, 1000);
+        }
+
+
+        function stopSlideShow() {
+            if (timer){
+            clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Add" onclick="addRow()">
+    <br>
+    <table id="myTable">
+
+    </table>
+    <br>
+    <input type="button" value="Start" onclick="slideShow()">
+    <input type="button" value="Stop" onclick="stopSlideShow()">
+    <br>
+    <div id="slides"></div>
+</body>
+
+</html>
