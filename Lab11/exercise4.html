@@ -10,16 +10,83 @@
     <title> exercise4 </title>
 
     <style>
-       
+        #options {
+            /* display: none; */
+            visibility: hidden;
+        }
     </style>
     <script>
-      
+
+        function showDiv() {
+            document.getElementById("options").style.visibility = "visible";
+        }
+
+        function add() {
+            let list = document.getElementById('list');
+            let theme = document.getElementById('theme');
+
+            if (theme.value == "") {
+                theme.value = list.value;
+            }
+            else {
+                theme.value += "/" + list.value;
+            }
+        }
+
+        function submit() {
+            let show = document.getElementById('show');
+            let title = document.getElementById('title');
+            let author = document.getElementById('author');
+            let theme = document.getElementById('theme');
+            if (title.value == "" || author.value == "") {
+                return alert("Error:Fill the Gaps");
+            }
+
+            show.innerHTML = + title.value + ", " + author.value + ", " + theme.value;
+        }
+
+        function hideDiv() {
+            document.getElementById("options").style.visibility = "hidden";
+        }
     </script>
 </head>
 
 <body>
-    
+    Title:
+    <br>
+    <textarea id="title" value="" rows="4" cols="16"> Insert Title</textarea>
+    <br>
+    Author:
+    <br>
+    <input id="author" type="text">
+    <br>
+    Theme:
+    <br>
+    <input id="theme" type="text" readonly="true">
+    <br>
+    <br>
+    <input type="button" id="insertTheme" value="Insert New Theme" onclick="showDiv()">
+    <br>
+    <br>
+    <div id="options">
+        <select id="list">
+            <option>Biology</option>
+            <option>Chemistry</option>
+            <option>Mathematics</option>
+            <option>Physics</option>
+        </select>
 
+        <input id="add" type="button" value="Add" onclick="add()">
+        <input id="exit" type="button" value="Exit" onclick="hideDiv()">
+    </div>
+
+    </br></br>
+
+    <input id="submit" type="button" value="Submit" onclick="submit()">
+
+    </br></br>
+
+    <div id="show"></div>
 </body>
 
 </html>
