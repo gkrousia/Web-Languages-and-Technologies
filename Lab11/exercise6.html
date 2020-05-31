@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise6 </title>
+
+    <style>
+
+    </style>
+    <script>
+        var timer;
+        let i=0;
+        const pics = ["first.png", "second.png", "third.png", "fourth.png", "fifth.png", "sixth.png"];
+
+
+        function startSlides() {
+            document.getElementById('nextpic').disabled = true;
+            document.getElementById('start').disabled = true;
+            timer = setInterval(nextPic(), 1000);
+        }
+
+        function nextPic() {
+            const pics = document.getElementById("pics");
+            i = i + 1;
+            if (i >= pics.length) {
+                i = 0;
+            }
+
+            document.getElementById('center').src = pics[i];
+        }
+        function stopSlides() {
+            document.getElementById('nextpic').disabled = false;
+            document.getElementById('start').disabled = false;
+            clearInterval(timer);
+        }
+    </script>
+</head>
+
+<body onload="startSlides()" onmousedown="stopSlides()">
+
+    <input id="nextpic" type="button" value="Next Picture" onclick="nextPic()">
+    <input id="start" type="button" value="Start" onclick="startSlideShow()">
+    <br>
+    <br>
+    <img src="first.png" id="first" width="80px" height="80px">
+    <img src="second.png" id="second" width="50px" height="50px">
+    <img src="third.png" id="third" width="50px" height="50px">
+    <br>
+    <br>
+    <img id="center" src="first.png">
+</body>
+
+</html>

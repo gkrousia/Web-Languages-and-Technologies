@@ -1,0 +1,112 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise5 </title>
+
+    <style>
+        #myTable,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        let count;
+        let greenCells;
+        let redCells;
+        function startGame() {
+            document.getElementById('button').disabled = true;
+            count = 10;
+            greenCells = 0;
+            redCells = 0;
+            var myTable = document.getElementById('myTable');
+            var timer = document.getElementById('timer');
+            timer.innerHTML = + count;
+
+            for (var i = 0; i <= 3; i++) {
+                for (var j = 0; j <= 3; j++) {
+                    var random = Math.floor(Math.random() * ((9 - 0) + 1) + 0);
+                    myTable.rows[i].cells[j].innerHTML = random;
+                    myTable.rows[i].cells[j].onclick = function () {
+                        colorCell(this);
+                    };
+                }
+            }
+            var intervalRef = setInterval(function () {
+                if (count === 0) {
+                    clearInterval(intervalRef);
+                    alert("Game Over, Your score is : Red Cells = " + redCells + " Green Cells = " + greenCells);
+                    document.getElementById("button").disabled = false;
+                    return;
+                }
+                // if (count === 1) {
+                //     clearInterval(intervalRef);
+                // }
+                --count;
+                timer.innerHTML = count;
+            }, 1000);
+
+        }
+
+        function colorCell(cell) {
+
+            if (cell.innerHTML > 5) {
+                cell.style.backgroundColor = "green";
+
+                greenCells++;
+            }
+            else {
+                cell.style.backgroundColor = "red";
+
+                redCells++;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input id="button" type="button" value="start" onclick="startGame()">
+
+    </br>
+
+    </br>
+
+    <table id="myTable">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    </br>
+
+    <div id="timer"></div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise7 </title>
+
+    <style>
+        body {
+            margin: 30px;
+        }
+
+        #myTable,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        let randomNumber;
+        let times = 0;
+        let color;
+        function createTable() {
+            document.getElementById("myTable").innerHTML = "";
+            let myTable = document.getElementById("myTable");
+            for (var r = 0; r < 5; r++) {
+                var x = document.getElementById('myTable').insertRow(r);
+                for (var c = 0; c < 5; c++) {
+                    var y = x.insertCell(c);
+                    randomNumber = Math.floor(Math.random() * ((99 - 10) + 10));
+                    y.innerText = +randomNumber;
+                }
+            }
+            myTable.rows[r].cells[c].onclick = function () {
+                pickNumber(this);
+            };
+        }
+
+        function pickNumber(ref) {
+            ref.style.backgroundColor = "green";
+
+            if (times < 3) {
+                color = +ref.innerText;
+                times++;
+            }
+            else {
+                let par = document.getElementById("par");
+                par.innerHTML = '<div></div>';
+                par.style.backgroundColor = "color";
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <table id="myTable"> </table>
+    <input type="button" id="create" value="Create the Table" onclick="createTable()">
+    <p id="par"></p>
+</body>
+
+</html>

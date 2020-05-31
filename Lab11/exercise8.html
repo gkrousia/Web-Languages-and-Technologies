@@ -1,0 +1,64 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise8 </title>
+
+    <style>
+        body {
+            margin: 30px;
+        }
+
+        #myTable,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        let i;
+        function returnPics() {
+            let timer = setInterval(function () {
+                let myTable = document.getElementById("myTable");
+                let myTable2 = document.getElementById("myTable2");
+                table1.rows[0].cells[i].innerHTML = table2.rows[0].cells[i].innerHTML;
+                i++;
+                if (i === 3) {
+                    clearInterval(timer);
+                }
+            }, 3000);
+        }
+
+        function clickImg(ref) {
+            let myTable2 = document.getElementById("myTable2");
+            let cell = myTable2.rows[0].insertCell();
+            ref.innerHTML = " ";
+            cell.innerHTML = "<td><img src=\"" + ref.src + "\" onclick=\"clickMe(this)\" width=\"50\" height=\"50\"></td>";
+        }
+
+    </script>
+</head>
+
+<body>
+    <table id="myTable">
+        <tr>
+            <td><img id="first" src="first.png" onclick="clickImg(this)" width="50px" height="50px"></td>
+            <td><img id="second" src="second.png" onclick="clickImg(this)" width="50px" height="50px"></td>
+            <td><img id="third" src="third.png" onclick="clickImg(this)" width="50px" height="50px"></td>
+            <td><img id="fourth" src="fourth.jpg" onclick="clickImg(this)" width="50px" height="50px"></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <table id="myTable2"></table>
+    <br>
+    <br>
+    <input type="button" value="Return Pics" id="return" onclick="returnPics()">
+</body>
+
+</html>

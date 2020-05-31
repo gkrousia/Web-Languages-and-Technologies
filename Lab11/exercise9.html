@@ -1,0 +1,83 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> exercise9 </title>
+
+    <style>
+        #myTable,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        #cart {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            border: 1px solid black;
+        }
+    </style>
+    <script src="http://lab1405.ecr8.com/official/productsDB.js">
+    </script>
+    <script>
+        function createTable() {
+            let myTable = document.getElementById("myTable");
+            for (var r = 0; r < products.length; r++) {
+                var x = myTable.insertRow(r);
+                for (var c = 0; c < 4; c++) {
+                    var y = x.insertCell(c);
+                    y.innerHTML = products[r][0];
+                    y = x.insertCell(c);
+                    y.innerHTML = products[r][1];
+                    y = x.insertCell(c);
+                    y.innerHTML = products[r][2];
+                    y = x.insertCell(c);
+                    y.innerHTML = products[r][3];
+                    y = x.insertCell(c);
+                    y.innerHTML = "<input type='button' value='Add to Cart' onclick='onCart(" + this + ")'>";
+                }
+            }
+            let total;
+            function onCart() {
+                let myTable2 = document.getElementById("myTable2");
+                let row = myTable2.insertRow(0);
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+                let cell4 = row.insertCell(3);
+                let cell5 = row.insertCell(4);
+                cell1.innerHTML = categories[products[][3]];
+                cell2.innerHTML = products[][0];
+                cell3.innerHTML = products[][3];
+                let items = window.prompt("How many items of this product do you want?")
+                cell4.innerHTML = items;
+                cell5.innerHTML = +cell3.innerHTML;
+
+            }
+
+    </script>
+</head>
+
+<body onload="createTable()">
+    <table id="myTable"></table>
+
+    <div id="cart">
+        <table id="myTable2">
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>SubTotal</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
