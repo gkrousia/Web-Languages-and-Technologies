@@ -23,6 +23,8 @@
 
         function showDiv() {
             document.getElementById("options").style.visibility = "visible";
+            // document.getElementById("options").style.display = "block";
+
         }
 
         function add() {
@@ -46,11 +48,12 @@
                 return alert("Error:Fill the Gaps");
             }
 
-            show.innerHTML = + title.value + ", " + author.value + ", " + theme.value;
+            show.innerHTML = title.value + ", " + author.value + ", " + theme.value;
         }
 
         function hideDiv() {
             document.getElementById("options").style.visibility = "hidden";
+            // document.getElementById("options").style.display = "block";
         }
     </script>
 </head>

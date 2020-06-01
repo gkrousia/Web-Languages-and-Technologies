@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="description" content="Free Web tutorials">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
@@ -10,28 +10,51 @@
     <title> exercise6 </title>
 
     <style>
-
+        #center {
+            width: 80px;
+            height: 80px;
+        }
     </style>
     <script>
         var timer;
-        let i=0;
-        const pics = ["first.png", "second.png", "third.png", "fourth.png", "fifth.png", "sixth.png"];
+        let i = 0;
+        const pics = ["first.png", "second.png", "third.png", "fourth.jpg", "fifth.png", "sixth.png"];
 
 
         function startSlides() {
             document.getElementById('nextpic').disabled = true;
             document.getElementById('start').disabled = true;
-            timer = setInterval(nextPic(), 1000);
+            timer = setInterval(nextPic, 1000);
         }
 
         function nextPic() {
-            const pics = document.getElementById("pics");
             i = i + 1;
             if (i >= pics.length) {
                 i = 0;
             }
+            let firstIndex = i;
+            let secondIndex = i + 1;
+            let thirdIndex = i + 2;
+            if (firstIndex >= pics.length) {
+                firstIndex = 0;
+            }
+            if (secondIndex >= pics.length) {
+                secondIndex = 1;
+            }
+            if (thirdIndex >= pics.length) {
+                thirdIndex = 2;
+            }
 
+            let first = document.getElementById("first");
+            let second = document.getElementById("second");
+            let third = document.getElementById("third");
+            first.src = pics[firstIndex]
+            second.src = pics[secondIndex]
+            third.src = pics[thirdIndex]
+
+            // document.getElementById('center').src = pics[firstIndex];
             document.getElementById('center').src = pics[i];
+            // console.log( firstIndex , secondIndex , thirdIndex)
         }
         function stopSlides() {
             document.getElementById('nextpic').disabled = false;
@@ -44,10 +67,10 @@
 <body onload="startSlides()" onmousedown="stopSlides()">
 
     <input id="nextpic" type="button" value="Next Picture" onclick="nextPic()">
-    <input id="start" type="button" value="Start" onclick="startSlideShow()">
+    <input id="start" type="button" value="Start" onclick="startSlides()">
     <br>
     <br>
-    <img src="first.png" id="first" width="80px" height="80px">
+    <img src="first.png" id="first" width="50px" height="50px">
     <img src="second.png" id="second" width="50px" height="50px">
     <img src="third.png" id="third" width="50px" height="50px">
     <br>

@@ -31,8 +31,9 @@
 
             for (var i = 0; i <= 3; i++) {
                 for (var j = 0; j <= 3; j++) {
-                    var random = Math.floor(Math.random() * ((9 - 0) + 1) + 0);
+                    var random = Math.floor(Math.random() * ((9 - 0) + 0) + 0);
                     myTable.rows[i].cells[j].innerHTML = random;
+                    myTable.rows[i].cells[j].style.backgroundColor = "white";
                     myTable.rows[i].cells[j].onclick = function () {
                         colorCell(this);
                     };

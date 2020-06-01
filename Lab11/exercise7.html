@@ -23,7 +23,8 @@
     <script>
         let randomNumber;
         let times = 0;
-        let color;
+        let color = [];
+        let backgroundColors = [];
         function createTable() {
             document.getElementById("myTable").innerHTML = "";
             let myTable = document.getElementById("myTable");
@@ -31,29 +32,50 @@
                 var x = document.getElementById('myTable').insertRow(r);
                 for (var c = 0; c < 5; c++) {
                     var y = x.insertCell(c);
-                    randomNumber = Math.floor(Math.random() * ((99 - 10) + 10));
+                    randomNumber = Math.floor(Math.random() * ((99 - 10)) + 10);
                     y.innerText = +randomNumber;
+                    myTable.rows[r].cells[c].onclick = function (event) {
+                        pickNumber(event.target);
+                    };
                 }
             }
-            myTable.rows[r].cells[c].onclick = function () {
-                pickNumber(this);
-            };
         }
 
         function pickNumber(ref) {
-            ref.style.backgroundColor = "green";
 
             if (times < 3) {
-                color = +ref.innerText;
-                times++;
-            }
-            else {
-                let par = document.getElementById("par");
-                par.innerHTML = '<div></div>';
-                par.style.backgroundColor = "color";
+                // ref.style.backgroundColor = "green";
+                if (color.indexOf(ref.innerText) === -1) {
+                    color.push(ref.innerText);
+                    console.log(color);
+                    times++;
+                }
+                console.log(times);
+                if (times === 3) {
+                    let par = document.getElementById("par");
+                    // par.innerHTML += '<div>the final color</div>';
+                    par.innerHTML += '<div style="background-color: #' + color.join("") + '">the final color</div>';
+                    // par.style.backgroundColor = "#" + color.join("");
+                    backgroundColors.push( "#" + color.join(""));
+                    times = 0;
+                    color = [];
+                }
             }
         }
 
+        let index = 0;
+        function changeColor() {
+            setInterval(function () {
+                if (index < backgroundColors.length) {
+                    document.body.style.backgroundColor = backgroundColors[index];
+                    index++;
+                }
+                else {
+                    index = 0;
+                    document.body.style.backgroundColor = backgroundColors[index];
+                }
+            }, 3000);
+        }
     </script>
 </head>
 
@@ -61,6 +83,7 @@
     <table id="myTable"> </table>
     <input type="button" id="create" value="Create the Table" onclick="createTable()">
     <p id="par"></p>
+    <input type="button" id="timer" value="Start" onclick="changeColor()">
 </body>
 
 </html>
