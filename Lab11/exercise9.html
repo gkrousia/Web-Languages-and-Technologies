@@ -28,39 +28,45 @@
     <script>
         function createTable() {
             let myTable = document.getElementById("myTable");
-            for (var r = 0; r < products.length; r++) {
-                var x = myTable.insertRow(r);
-                for (var c = 0; c < 4; c++) {
-                    var y = x.insertCell(c);
-                    y.innerHTML = products[r][0];
-                    y = x.insertCell(c);
-                    y.innerHTML = products[r][1];
-                    y = x.insertCell(c);
-                    y.innerHTML = products[r][2];
-                    y = x.insertCell(c);
-                    y.innerHTML = products[r][3];
-                    y = x.insertCell(c);
-                    y.innerHTML = "<input type='button' value='Add to Cart' onclick='onCart(" + this + ")'>";
+            for (var rowIndex = 0; rowIndex < products.length; rowIndex++) {
+                var newRow = myTable.insertRow(rowIndex);
+                for (var cellIndex = 0; cellIndex < 3; cellIndex++) {
+                    var newCell = newRow.insertCell(cellIndex);
+                    newCell.innerHTML = products[rowIndex][cellIndex];
+                    // newCell = newRow.insertCell(cellIndex);
+                    // newCell.innerHTML = products[rowIndex][1];
+                    // newCell = newRow.insertCell(cellIndex);
+                    // newCell.innerHTML = products[rowIndex][2];
+                    // newCell = newRow.insertCell(cellIndex);
+                    // newCell.innerHTML = products[rowIndex][3];
+                    // newCell = newRow.insertCell(cellIndex);
                 }
+                var newCell = newRow.insertCell(cellIndex);
+                newCell.innerHTML = "<input type='button' value='Add to Cart' onclick='onCart(" + rowIndex + ")'>";
             }
-            let total;
-            function onCart() {
-                let myTable2 = document.getElementById("myTable2");
-                let row = myTable2.insertRow(0);
-                let cell1 = row.insertCell(0);
-                let cell2 = row.insertCell(1);
-                let cell3 = row.insertCell(2);
-                let cell4 = row.insertCell(3);
-                let cell5 = row.insertCell(4);
-                cell1.innerHTML = categories[products[][3]];
-                cell2.innerHTML = products[][0];
-                cell3.innerHTML = products[][3];
-                let items = window.prompt("How many items of this product do you want?")
-                cell4.innerHTML = items;
-                cell5.innerHTML = +cell3.innerHTML;
-
+        }
+        let total = 0;
+        function onCart(rowNumber) {
+            let myCartTable = document.getElementById("myCartTable");
+            let row = myCartTable.insertRow(-1);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
+            let cell5 = row.insertCell(4);
+            cell1.innerHTML = rowNumber;
+            cell2.innerHTML = products[rowNumber][0];
+            cell3.innerHTML = products[rowNumber][2];
+            let items = window.prompt("How many items of this product do you want?")
+            while (isNaN(items) || Number(items) < 0) {
+                items = window.prompt("How many items of this product do you want?")
             }
+            cell4.innerHTML = items;
+            cell5.innerHTML = +cell3.innerHTML;
+            total += Number(items) * products[rowNumber][2]
+            document.getElementById("totalcost").innerHTML = "the total cost is :" + total;
 
+        }
     </script>
 </head>
 
@@ -68,7 +74,7 @@
     <table id="myTable"></table>
 
     <div id="cart">
-        <table id="myTable2">
+        <table id="myCartTable">
             <tr>
                 <td>ID</td>
                 <td>Name</td>
@@ -78,6 +84,7 @@
             </tr>
         </table>
     </div>
+    <div id="totalcost">the total cost is : </div>
 </body>
 
 </html>

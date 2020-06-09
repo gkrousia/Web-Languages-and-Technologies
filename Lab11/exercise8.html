@@ -21,14 +21,15 @@
         }
     </style>
     <script>
-        let i;
+        let i = 0;
         function returnPics() {
             let timer = setInterval(function () {
                 let myTable = document.getElementById("myTable");
                 let myTable2 = document.getElementById("myTable2");
-                table1.rows[0].cells[i].innerHTML = table2.rows[0].cells[i].innerHTML;
+                myTable.rows[0].cells[i].innerHTML = myTable2.rows[0].cells[0].innerHTML;
+                myTable2.rows[0].cells[0].remove();
                 i++;
-                if (i === 3) {
+                if (i > 3) {
                     clearInterval(timer);
                 }
             }, 3000);
@@ -37,8 +38,9 @@
         function clickImg(ref) {
             let myTable2 = document.getElementById("myTable2");
             let cell = myTable2.rows[0].insertCell();
-            ref.innerHTML = " ";
             cell.innerHTML = "<td><img src=\"" + ref.src + "\" onclick=\"clickMe(this)\" width=\"50\" height=\"50\"></td>";
+            ref.remove();
+
         }
 
     </script>
@@ -55,7 +57,9 @@
     </table>
     <br>
     <br>
-    <table id="myTable2"></table>
+    <table id="myTable2">
+        <tr></tr>
+    </table>
     <br>
     <br>
     <input type="button" value="Return Pics" id="return" onclick="returnPics()">
