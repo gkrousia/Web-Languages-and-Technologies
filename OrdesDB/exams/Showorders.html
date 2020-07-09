@@ -1,0 +1,120 @@
+﻿
+<html>
+
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> show the orders </title>
+
+	<script type="text/javascript" src="salesDB.js"></script>
+
+	<script>
+		function filltable() {
+
+			var mytable = document.getElementById("mytable");
+
+			for (i = 0; i < products.length; i++) {
+				var row = mytable.insertRow(-1);
+				var cell = row.insertCell(-1);
+				cell.innerHTML = products[i][0];
+				var cell = row.insertCell(-1);
+				cell.innerHTML = "<img src='" + products[i][1] + "'/>";
+				var cell = row.insertCell(-1);
+				cell.innerHTML = products[i][2];
+				var cell = row.insertCell(-1);
+				var b = document.createElement("INPUT");
+				b.type = "button";
+				b.value = "Show orders";
+				b.id = i;
+				b.onclick = function () { showorders(this) };
+				cell.appendChild(b);
+			}
+
+			for (i = 0; i < customers.length; i++) {
+				var opt = document.createElement("OPTION");
+				opt.value = i;
+				opt.innerHTML = customers[i];
+				document.getElementById("customersselect").appendChild(opt);
+			}
+
+		}
+
+		var total = 0;
+
+		function showorders(obj) {
+			var productid = obj.id;
+			var orderstable = document.getElementById("orderstable");
+			orderstable.innerHTML = "<tr><td>OrderID</td><td>Customer</td><td>Quantity</td></tr>";
+
+			for (i = 0; i < sales.length; i++) {
+				if (productid == sales[i][1]) {
+					var row = orderstable.insertRow(-1);
+					var cell = row.insertCell(-1);
+					cell.innerHTML = i;
+					var cell = row.insertCell(-1);
+					cell.innerHTML = customers[sales[i][0]];
+					var cell = row.insertCell(-1);
+					cell.innerHTML = sales[i][2];
+				}
+			}
+		}
+
+		function updateproducts(){
+
+			const cust=document.getElementById("customersselect");
+            document.getElementById("orderstable").innerHTML = "";
+            document.getElementById("orderstable").innerHTML += "<tr><td>Customer</td><td>ProductID</td><td>Quantity</td><td>Delete Product</td><tr>"
+				alert("you've chosen customer" + cust.value)
+				for (let sale of sales) {
+                let myTable = document.getElementById("orderstable");
+                if (cust.value == sale[0]) {
+                    let row = myTable.insertRow(-1);
+                    let cell1 = row.insertCell(0);
+                    let cell2 = row.insertCell(1);
+                    let cell3 = row.insertCell(2);
+					let cell4 = row.insertCell(3);
+					cell1.innerHTML = sale[0];
+					cell2.innerHTML = sale[1];
+					cell3.innerHTML = sale[2];
+					let numbOfRow = myTable.rows.length-1;
+                    cell4.innerHTML= "<input type='button' value='Delete Product' onclick='deleteProduct(" +numbOfRow + ")'>";
+
+
+		}
+	}
+}
+
+// let total=0;
+
+function deleteProduct(row){
+            let orderstable = document.getElementById("orderstable");
+            // total = total- parseInt(orderstable.rows[+row].cells[4].innerText);
+            document.getElementById("orderstable").deleteRow(row);
+            // console.log(total);
+            // document.getElementById("totalcost").innerHTML = "the total cost is :" + total;
+
+        }
+
+	</script>
+</head>
+
+<body onload="filltable()">
+	<select id="customersselect" onchange="updateproducts()"></select>
+	<div id="cart" style="top:0px; right:0px; position:absolute; background-color:yellow; padding:5px">
+		<h2>Orders</h2>
+		<table id="orderstable" border="1">
+			<tr>
+				<td>Customer</td>
+				<td>ProductID</td>
+				<td>Quantity</td>
+				<td>Delete Product</td>
+			</tr>
+		</table>
+	</div>
+	<table id="mytable" border="1"></table>
+</body>
+
+</html>

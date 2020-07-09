@@ -1,0 +1,115 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> show the orders </title>
+
+    <style>
+        #showorders,
+        td {
+            border: 1px solid black;
+        }
+
+        #cart {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            border: 1px solid black;
+        }
+    </style>
+    <script src="orders.js"></script>
+    </script>
+    <script>
+
+        function load_customers() {
+            for (let customer of customers) {
+                document.getElementById("customers").innerHTML += " <option value='" + customer.id + "'>" + customer.customer_name + "</option> "
+            }
+            showOrders();
+        }
+
+        let total=0;
+
+
+        function showOrders() {
+            const cust=document.getElementById("customers");
+            document.getElementById("showorders").innerHTML = "";
+            document.getElementById("showorders").innerHTML += "<tr><td>customer id</td><td>customer name</td><td>order id</td><td>product_name</td><td>price</td><td>Delete Product</td><tr>"
+
+            alert("you've chosen customer" + cust.value)
+
+            for (let order of orders) {
+                let myTable = document.getElementById("showorders");
+                if (parseInt(cust.value) == order.customer_id) {
+                    let row = myTable.insertRow(-1);
+                    let cell1 = row.insertCell(0);
+                    let cell2 = row.insertCell(1);
+                    let cell3 = row.insertCell(2);
+                    let cell4 = row.insertCell(3);
+                    let cell5 = row.insertCell(4);
+                    let cell6 = row.insertCell(5);
+
+
+                    cell1.innerHTML = order.customer_id;
+                    for (let customer of customers) {
+                        if (order.customer_id == customer.id) {
+                            cell2.innerHTML = customer.customer_name;
+                        }
+                    }
+                    cell3.innerHTML = order.order_id;
+                    for (let product of products) {
+                        if (orders.product_id == product.id) {
+                            cell4.innerHTML = product.product_name;
+                        }
+                    }
+                    cell5.innerHTML = order.price;
+                     total += order.price;
+                    document.getElementById("totalcost").innerHTML = "the total cost is :" + total;
+                    let numbOfRow = myTable.rows.length-1;
+                    cell6.innerHTML= "<input type='button' value='Delete Product' onclick='deleteProduct(" +numbOfRow + ")'>";
+
+                }
+                
+            }
+        }
+
+        function deleteProduct(row){
+            let myTable = document.getElementById("showorders");
+            total = total- parseInt(myTable.rows[+row].cells[4].innerText);
+            document.getElementById("showorders").deleteRow(+row);
+            console.log(total);
+            document.getElementById("totalcost").innerHTML = "the total cost is :" + total;
+
+        }
+
+    </script>
+</head>
+
+<body onload="load_customers()">
+    <select id="customers" onchange="showOrders()">
+
+    </select>
+
+    <table id="showorders">
+        <tr>
+            <td>customer id</td>
+            <td>customer name</td>
+            <td>order id</td>
+            <td>product name</td>
+            <td>price</td>
+            <td>Delete Product</td>
+        </tr>
+
+    </table>
+<br>
+<div id="totalcost"></div>
+
+
+</body>
+
+</html>
