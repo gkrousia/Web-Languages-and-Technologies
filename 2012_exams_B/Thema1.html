@@ -1,0 +1,208 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Free Web tutorials">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="Grigorios Krousiarlis">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Thema 1 </title>
+
+	<script type="text/javascript">
+		var intervalId;
+		var rnd;
+		var n = 0;
+		var lastRND;
+		var mytable;
+
+		function startGame() {
+			n = 0;
+			document.getElementById('b1').disabled = "disabled";
+			rnd = Math.floor(Math.random() * 10);
+			lastRND = rnd;
+			document.getElementById('rnd').innerHTML = rnd;
+			mytable = document.getElementById('t1');
+			intervalId = setInterval("move()", 200)
+		}
+		function restartYellowBox() {
+			n = 0;
+			rnd = Math.floor(Math.random() * 10);
+		}
+
+		function move() {
+			mytable = document.getElementById('t1');
+			document.getElementById('n').innerHTML = n;
+			if (n == 0) {
+				mytable.rows[lastRND].cells[9].style.backgroundColor = "white";
+				mytable.rows[rnd].cells[0].style.backgroundColor = "yellow";
+				n++;
+			}
+			else if (n == 9) {
+				lastRND = rnd;
+				mytable.rows[rnd].cells[n - 1].style.backgroundColor = "white";
+				mytable.rows[rnd].cells[n].style.backgroundColor = "yellow";
+				restartYellowBox();
+			}
+			else {
+				mytable.rows[rnd].cells[n - 1].style.backgroundColor = "white";
+				mytable.rows[rnd].cells[n].style.backgroundColor = "yellow";
+				n++;
+			}
+		}
+
+		var c = 0;
+		function choose(e) {
+			var t;
+			if (window.event)
+				t = window.event.srcElement;
+			else
+				t = e.target;
+			if (t.style.backgroundColor == "yellow") {
+				clearInterval(intervalId);
+				t.style.backgroundColor = "green";
+				document.getElementById('b1').disabled = "";
+				document.getElementById('result').innerHTML = "Αποτυχημένα κλικ: " + c;
+			}
+			else {
+				c++;
+			}
+		}
+	</script>
+</head>
+
+<body onload="document.getElementById(&#39;b1&#39;).disabled=&#39;&#39;;">
+	<input name="Button1" type="button" value="Εναρξη" id="b1" onclick="startGame()">
+	<table id="t1" border="1" style="width:200px;height:200px" onclick="choose(event)">
+		<tbody>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	<div id="result"></div>
+	<div id="info" style=" float:right; right:100px; text-align:left;">
+		rnd: <span id="rnd">-1</span><br />
+		n: <span id="n">-1</span><br />
+	</div>
+
+
+</body>
+
+</html>

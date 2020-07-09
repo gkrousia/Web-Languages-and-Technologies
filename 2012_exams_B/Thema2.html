@@ -1,0 +1,76 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Free Web tutorials">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="Grigorios Krousiarlis">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Thema 2 </title>
+	<script type="text/javascript">
+		function change(e) {
+			var t;
+			if (window.event)
+				t = window.event.srcElement;
+			else
+				t = e.target;
+			if (t.tagName == "H1" || t.tagName == "H2" || t.tagName == "H3") {
+				if (t.tagName = "H1")
+					t.style.border = "3px dashed blue";
+				else if (t.tagName == "H2")
+					t.style.border = "3px dashed green";
+				else if (t.tagName == "H3")
+					t.style.border = "3px dashed red";
+			}
+		}
+		var clickedId;
+		function show(e) {
+			var t;
+			if (window.event)
+				t = window.event.srcElement;
+			else
+				t = e.target;
+			if (t.tagName == "H1" || t.tagName == "H2" || t.tagName == "H3")
+				document.getElementById('txtBox').innerHTML = '<input type="text" value="' + t.innerHTML + '" id="inpt"/><input name="Button1" type="button" value="Αλλαγή" id="b1" onclick="chngTxtBox()"/>';
+			if (t.tagName != "BODY" && t.tagName != "INPUT")
+				clickedId = t.id;
+		}
+		function clear2(e) {
+			var t;
+			if (window.event)
+				t = window.event.srcElement;
+			else
+				t = e.target;
+			var head1 = document.getElementsByTagName("H1");
+			var head2 = document.getElementsByTagName("H2");
+			var head3 = document.getElementsByTagName("H3");
+			if (t.tagName = "BODY" || (t.tagName != "H1" && t.tagName != "H2" && t.tagName != "H3")) {
+				for (i = 0; i < head1.length; i++) {
+					head1[i].style.border = "";
+				}
+				for (j = 0; j < head2.length; j++) {
+					head2[j].style.border = "";
+				}
+				for (m = 0; m < head3.length; m++) {
+					head3[m].style.border = "";
+				}
+			}
+		}
+		function chngTxtBox() {
+			document.getElementById(clickedId).innerHTML = document.getElementById('inpt').value;
+			document.getElementById('txtBox').innerHTML = "";
+		}
+	</script>
+</head>
+
+<body onmouseover="change(event)" onclick="show(event)" onmouseout="clear2(event)">
+	<div id="txtBox"></div>
+	<h1 id="g1">this is the 1st H1</h1>
+	<h2 id="g2">this is the 1st H2</h2>
+	<h1 id="g3">this is the 2nd H1</h1>
+	<h3 id="g4">this is the 1st H3</h3>
+	<h1 id="g5">this is the 3rd H1</h1>
+	<h3 id="g6">this is the 2nd H3</h3>
+</body>
+
+</html>
