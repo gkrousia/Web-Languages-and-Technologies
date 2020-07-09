@@ -1,0 +1,146 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+
+    <style>
+        #first {
+            height: 20%;
+            width: 100%;
+            background-color: blue;
+            font-size: xx-large;
+            font-weight: bolder;
+            text-align: center;
+            box-sizing: border-box;
+            border: 3px solid black;
+        }
+
+        #container {
+            height: 80%;
+            width: 100%;
+            box-sizing: border-box;
+            border: 3px solid black;
+        }
+
+        #container #second {
+            height: 100%;
+            width: 20%;
+            background-color: red;
+            font-size: xx-large;
+            font-weight: bolder;
+            text-align: center;
+            border: 3px solid black;
+            display: inline-block;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        #container #third {
+            float: left;
+            display: inline-block;
+            height: 100%;
+            width: 80%;
+            background-color: purple;
+            font-size: xx-large;
+            font-weight: bolder;
+            text-align: center;
+            box-sizing: border-box;
+            border: 3px solid black;
+        }
+
+        #container #second #myTable21 td,
+        #container #second #myTable22 td,
+        #container #second #myTable23 td {
+            border: 1px solid black;
+            background-color: pink;
+        }
+    </style>
+    <script>
+
+        function threeTables() {
+            let myTable21 = document.getElementById("myTable21");
+            let myTable22 = document.getElementById("myTable22");
+            let myTable23 = document.getElementById("myTable23");
+            loadTable(myTable21);
+            loadTable(myTable22);
+            loadTable(myTable23);
+
+        }
+
+let numberOfselectedCells=0;
+let newColor="";
+        function loadTable(myTable) {
+            myTable.innerHTML="";
+            for (let i = 0; i < 1; i++) {
+                myTable.insertRow(-1);
+                for (let j = 0; j < 5; j++) {
+                    myTable.rows[i].insertCell(j);
+                    let randomNumber = Math.floor(Math.random() * (99 - 10 + 1)) + 10;
+                    myTable.rows[i].cells[j].innerHTML = randomNumber;
+                    myTable.rows[i].cells[j].onclick = function () {
+                        const selectedCellRow = this.parentNode;
+                        let yellowExists = false;
+                        for (let x = 0; x < selectedCellRow.cells.length; x++) {
+                            if (selectedCellRow.cells[x].style.backgroundColor == "yellow") {
+                                yellowExists = true;
+                            }
+                        }
+
+                        if ( yellowExists == false) {
+                            myTable.rows[i].cells[j].style.backgroundColor = "yellow"
+                            newColor += myTable.rows[i].cells[j].innerText;
+                            numberOfselectedCells ++;
+                        }else {
+                            document.getElementById("errorMsg").style.backgroundColor = "red";
+                            document.getElementById("errorMsg").style.color = "white";
+                            document.getElementById("errorMsg").style.position = "absolute";
+                            document.getElementById("errorMsg").style.left = "100px";
+                            document.getElementById("errorMsg").innerHTML = "δεν επιτρεπεται να πατήσεις δεύτερο κελί από τον ίδιο πίνακα"
+                        }
+
+                        if(numberOfselectedCells ==3){
+                            document.getElementById("Demonstration").style.width= "400px";
+                            document.getElementById("Demonstration").style.height= "400px";
+                            document.getElementById("Demonstration").style.backgroundColor= "#"+parseInt(newColor);
+                            setTimeout(function(){
+                                document.getElementById("Demonstration").style.display="none";
+                                threeTables();
+                            },15000)
+
+                        }
+                    }
+
+                }
+            }
+        }
+
+
+    </script>
+</head>
+
+<body onload="threeTables()">
+
+    <div id="first">1<div id="errorMsg"></div>
+    </div>
+    <div id="container">
+        <div id="second">
+            2
+            <table id="myTable21"></table>
+            <table id="myTable22"></table>
+            <table id="myTable23"></table>
+        </div>
+        <div id="third">
+            3
+            <div id="Demonstration" onclick="threeTables(); this.style.display='none';"></div>
+        </div>
+    </div>
+</body>
+
+
+</html>
