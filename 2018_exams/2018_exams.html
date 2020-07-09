@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Grigorios Krousiarlis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 2018 EXAMS </title>
+    <script>
+        let counter = 1;
+        let AM;
+        let name;
+        let year;
+        let ch = 0;
+        let T1;
+        let T2;
+
+        function fillSB() {
+            if (ch == 0) {
+                year = document.getElementById("year");
+                AM = document.getElementById("AM").value.length;
+                name = document.getElementById("name").value.length;
+                if (AM != 0) {
+                    if (name != 0) {
+                        ch = 1;
+                        year.innerHTML = '<option value="Έτος Σπουδών 1">Έτος Σπουδών 1</option><option value="Έτος Σπουδών 2">Έτος Σπουδών 2</option><option value="Έτος Σπουδών 3">Έτος Σπουδών 3</option><option value="Έτος Σπουδών 4">Έτος Σπουδών 4</option><option value="Έτος Σπουδών 5">Έτος Σπουδών 5</option>'
+                    }
+                }
+            }
+        }
+
+        function testfor(cell) {
+            let C = cell.innerHTML;
+            document.getElementById("list").innerHTML += '<li>' + C + '</li>'
+        }
+
+        function changebg(row) {
+            if (row.style.backgroundColor != "yellow") {
+                row.style.backgroundColor = "yellow";
+            } else if (row.style.backgroundColor == "yellow") {
+                row.style.backgroundColor = "white";
+            }
+        }
+
+
+        function insert() {
+            let OEs = document.getElementById("name").value;
+            let AMs = document.getElementById("AM").value;
+            AM = document.getElementById("AM").value.length;
+            name = document.getElementById("name").value.length;
+            year = document.getElementById("year").value;
+            let classroom = document.getElementById("classroom").value;
+            if (AM != 0) {
+                if (name != 0) {
+                    if (year.length != 0) {
+                        T1 = document.getElementById("T1");
+                        T1.innerHTML += '<tr> <td ondblclick="testfor(this)">' + AMs + '</td><td ondblclick="testfor(this)">' + year + '</td></tr>';
+                        T2 = document.getElementById("T2");
+                        T2.innerHTML += '<tr onmouseover="changebg(this)" onmouseout="changebg(this)"><td>' + counter + '</td><td >' + OEs + '</td><td >' + classroom + '</td></tr>';
+                        counter++;
+                        document.getElementById("name").value = "";
+                        document.getElementById("AM").value = "";
+
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        table.table1 {
+            position: absolute;
+            right: 35px;
+            top: 20px;
+            border-collapse: collapse;
+            font-family: "Arial";
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        table.table1 td,
+        table.table1 th {
+            border: 3px solid black;
+        }
+
+        ul.list1 {
+            position: absolute;
+            right: 35px;
+            top: 420px;
+            border-collapse: collapse;
+            font-family: "Arial";
+        }
+
+        table.table2 {
+            position: fixed;
+            right: 40%;
+            top: 40%;
+            border-collapse: collapse;
+            font-family: "Arial";
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        table.table2 th {
+            background-color: blue;
+            color: white;
+            border: 3px solid black;
+        }
+
+   
+        table.table2 td {
+            border: 3px solid black;
+        }
+        table.table2 tr{
+            background-color: aqua;
+            border: 3px solid black;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <ul id="list" class="list1">
+
+    </ul>
+    Αριθμός Μητρώου: <input type="text" id="AM">
+    Ονοματεπώνυμο: <input type="text" id="name">
+
+    <select id="year" onclick="fillSB()">
+
+    </select>
+    <select id="classroom">
+        <option value="ΑΜΦ">ΑΜΦ</option>
+        <option value="101">101</option>
+        <option value="102">102</option>
+        <option value="109">109</option>
+    </select>
+
+
+    <input type="button" value="ΚΑΤΑΧΩΡΗΣΗ" onclick="insert()">
+
+
+    <table class="table1" id="T1">
+        <tr>
+            <th> AM </th>
+            <th> ΕΤΟΣ ΣΠΟΥΔΩΝ </th>
+        </tr>
+
+    </table>
+
+    <table class="table2" id="T2">
+        <tr>
+            <th> A/A </th>
+            <th> Ονοματεπώνυμο </th>
+            <th> Αίθουσα </th>
+        </tr>
+
+    </table>
+
+</body>
+
+</html>
